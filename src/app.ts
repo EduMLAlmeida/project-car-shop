@@ -14,4 +14,14 @@ app.post(
   (req, res) => new CarController(req, res).create(),
 );
 
+app.get(
+  '/cars',
+  (req, res) => new CarController(req, res).getAll(),
+);
+
+app.get(
+  '/cars/:id',
+  (req, res) => new CarController(req, res).getById(),
+);
+
 export default app;

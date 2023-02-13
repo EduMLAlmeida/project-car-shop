@@ -22,6 +22,16 @@ class CarODM {
     const createdCar = await this.model.create({ ...newCar });
     return createdCar;
   }
+
+  public async getAll() {
+    const allCars = await this.model.find();
+    return allCars;
+  }
+
+  public async getById(id: string) {
+    const car = await this.model.findById(id);
+    return car;
+  }
 }
 
 export default CarODM;
