@@ -24,4 +24,9 @@ app.get(
   (req, res) => new CarController(req, res).getById(),
 );
 
+app.put(
+  '/cars/:id',
+  (req, res) => new CarController(req, res).updateById(),
+);
+
 export default app;

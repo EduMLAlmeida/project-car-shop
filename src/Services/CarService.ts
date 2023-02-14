@@ -33,6 +33,12 @@ class CarService {
     const car = await this.carODM.getById(id);
     return new Car(car as ICar);
   }
+
+  public async updateById(id: string, newCar: ICar) {
+    await this.carODM.updateById(id, newCar);
+    const car = { ...newCar, id };
+    return new Car(car as ICar);
+  }
 }
 
 export default CarService;

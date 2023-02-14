@@ -32,6 +32,14 @@ class CarODM {
     const car = await this.model.findById(id);
     return car;
   }
+
+  public async updateById(id: string, newCar: ICar) {
+    const response = await this.model.updateOne(
+      { _id: id },
+      { $set: newCar },
+    );
+    if (response.modifiedCount === 0) throw new Error('Car not Found');
+  }
 }
 
 export default CarODM;
